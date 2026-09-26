@@ -7,12 +7,13 @@ namespace TheKiwiCoder {
     [System.Serializable]
     public class Selector : CompositeNode
     {
-        private int lasSuccessfulIndex;
+        private int _activeChildIndex = -1;
 
         protected override void OnStart() { }
 
         protected override void OnStop()
         {
+            _activeChildIndex = -1;
             foreach (var child in children)
             {
                 child.Stop();
@@ -24,12 +25,12 @@ namespace TheKiwiCoder {
             { 
                 var childStatus = children[i].Update();
 
-                if (childStatus != State.Failure && i < lasSuccessfulIndex)
+                if (childStatus != State.Failure && i < _activeChildIndex)
                 {
-                    var previousChild = children[lasSuccessfulIndex];
+                    var previousChild = children[_activeChildIndex];
                     previousChild.Stop();
 
-                    lasSuccessfulIndex = i;
+                    _activeChildIndex = i;
                 }
 
                 if (childStatus == State.Running) 
