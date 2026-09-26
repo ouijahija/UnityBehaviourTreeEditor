@@ -9,5 +9,10 @@ namespace TheKiwiCoder {
         [SerializeReference]
         [HideInInspector] 
         public Node child;
+
+        protected virtual override void OnStop()
+        {
+            child?.Stop();
+        }
     }
 }

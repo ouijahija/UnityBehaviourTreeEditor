@@ -51,10 +51,7 @@ namespace TheKiwiCoder {
         }
 
         public void Abort() {
-            BehaviourTree.Traverse(this, (node) => {
-                node.started = false;
-                node.OnStop();
-            });
+            BehaviourTree.Traverse(this, (node) => node.Stop());
         }
 
         public virtual void OnDrawGizmos() { }
