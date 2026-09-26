@@ -10,7 +10,7 @@ namespace TheKiwiCoder {
         [HideInInspector] 
         public Node child;
 
-        protected virtual override void OnStop()
+        protected override void OnStop()
         {
             child?.Stop();
         }
