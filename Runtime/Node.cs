@@ -45,6 +45,11 @@ namespace TheKiwiCoder {
             return state;
         }
 
+        protected void Stop()
+        {
+            if (started) OnStop();
+        }
+
         public void Abort() {
             BehaviourTree.Traverse(this, (node) => {
                 node.started = false;

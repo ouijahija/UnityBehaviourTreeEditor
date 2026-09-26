@@ -15,7 +15,7 @@ namespace TheKiwiCoder {
         {
             foreach (var child in children)
             {
-                if (child.started) child.OnStop();
+                child.Stop();
             }
         }
 
@@ -27,7 +27,7 @@ namespace TheKiwiCoder {
                 if (childStatus != State.Failure && i < lasSuccessfulIndex)
                 {
                     var previousChild = children[lasSuccessfulIndex];
-                    if (previousChild.started) previousChild.OnStop();
+                    previousChild.Stop();
 
                     lasSuccessfulIndex = i;
                 }
