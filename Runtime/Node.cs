@@ -45,7 +45,7 @@ namespace TheKiwiCoder {
             return state;
         }
 
-        protected void Stop()
+        public void Stop()
         {
             if (started) OnStop();
         }
