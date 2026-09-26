@@ -26,7 +26,8 @@ namespace TheKiwiCoder {
 
         public State Update() {
 
-            if (!started) {
+            if (!started) 
+            {
                 OnStart();
                 started = true;
             }
@@ -35,7 +36,8 @@ namespace TheKiwiCoder {
 
             context.tickResults[guid] = state;
 
-            if (state != State.Running) {
+            if (state != State.Running) 
+            {
                 OnStop();
                 started = false;
             }
