@@ -10,6 +10,7 @@ public class #SCRIPTNAME# : DecoratorNode
 
     protected override void OnStop() 
     {
+        base.OnStop();
     }
 
     protected override State OnUpdate() 

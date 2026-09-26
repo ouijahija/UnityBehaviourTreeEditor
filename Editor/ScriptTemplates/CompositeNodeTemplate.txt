@@ -10,6 +10,7 @@ public class #SCRIPTNAME# : CompositeNode
 
     protected override void OnStop() 
     {
+        base.OnStop();
     }
 
     protected override State OnUpdate() 

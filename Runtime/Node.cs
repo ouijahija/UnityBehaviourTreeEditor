@@ -47,7 +47,10 @@ namespace TheKiwiCoder {
 
         public void Stop()
         {
-            if (started) OnStop();
+            if (!started) return;
+
+            OnStop();
+            started = false;
         }
 
         public void Abort() {

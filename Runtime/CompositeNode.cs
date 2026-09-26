@@ -10,5 +10,11 @@ namespace TheKiwiCoder {
         [HideInInspector] 
         [SerializeReference]
         public List<Node> children = new List<Node>();
+
+        protected virtual override void OnStop()
+        {
+            foreach (var child in children)
+                child.Stop();
+        }
     }
 }

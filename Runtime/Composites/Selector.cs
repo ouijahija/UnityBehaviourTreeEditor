@@ -15,8 +15,7 @@ namespace TheKiwiCoder
         protected override void OnStop()
         {
             _activeChildIndex = -1;
-            foreach (var child in children)
-                child.Stop();
+            base.OnStop();
         }
 
         protected override State OnUpdate()
